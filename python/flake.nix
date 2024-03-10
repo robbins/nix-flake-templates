@@ -13,7 +13,7 @@
         pkgs = import nixpkgs { inherit system; };
       in {
         devShell = with pkgs; mkShell {
-          buildInputs = [ (python311.withPackages (p: [ p.pylint p.flake8 ])) ];
+          packages = [ (python311.withPackages (p: [ p.pylint p.flake8 ])) ];
         };
     });
 }

@@ -14,7 +14,7 @@
         jdk = pkgs.jdk21;
       in {
         devShell = with pkgs; mkShell {
-          buildInputs = [ jdk (checkstyle.override { jre = jdk; }) ];
+          packages = [ jdk (checkstyle.override { jre = jdk; }) ];
         };
     });
 }

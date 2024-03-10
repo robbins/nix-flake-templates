@@ -13,7 +13,7 @@
         pkgs = import nixpkgs { inherit system; };
       in {
         devShell = with pkgs; mkShell {
-          buildInputs = [ racket ];
+          packages = [ racket ];
         };
     });
 }

@@ -13,7 +13,7 @@
         pkgs = import nixpkgs { inherit system; };
       in {
         devShell = with pkgs; (mkShell.override { stdenv = gcc13Stdenv; }) {
-          buildInputs = [ gnumake bear compdb clang-tools clang gdb valgrind ];
+          packages = [ gnumake bear compdb clang-tools clang gdb valgrind ];
         };
     });
 }
