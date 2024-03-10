@@ -19,6 +19,14 @@
         path = ./java;
         description = "A simple Java dev shell";
       };
+      racket = {
+        path = ./racket;
+        description = "A simple Racket dev shell";
+      };
+      c = {
+        path = ./c;
+        description = "A simple C dev shell";
+      };
     };
   };
 }
