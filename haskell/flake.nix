@@ -13,7 +13,7 @@
         pkgs = import nixpkgs { inherit system; };
       in {
         devShell = with pkgs; mkShell {
-          packages = [ (haskellPackages.ghcWithPackages (p: [ p.HUnit ])) ];
+          packages = [ (haskellPackages.ghcWithPackages (p: [ p.HUnit p.hlint ])) ];
         };
     });
 }
