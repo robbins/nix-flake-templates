@@ -15,6 +15,10 @@
         path = ./python;
         description = "A simple Python dev shell";
       };
+      java = {
+        path = ./java;
+        description = "A simple Java dev shell";
+      };
     };
   };
 }
