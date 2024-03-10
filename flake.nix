@@ -11,6 +11,10 @@
         path = ./haskell;
         description = "A simple Haskell dev shell";
       };
+      python = {
+        path = ./python;
+        description = "A simple Python dev shell";
+      };
     };
   };
 }
