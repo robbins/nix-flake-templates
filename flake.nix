@@ -27,6 +27,10 @@
         path = ./c;
         description = "A simple C dev shell";
       };
+      prolog = {
+        path = ./prolog;
+        description = "A simple Prolog dev shell";
+      };
     };
   };
 }
