@@ -31,6 +31,10 @@
         path = ./prolog;
         description = "A simple Prolog dev shell";
       };
+      cpp = {
+        path = ./cpp;
+        description = "A simple C++ dev shell";
+      };
     };
   };
 }
