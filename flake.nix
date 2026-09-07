@@ -23,17 +23,13 @@
         path = ./racket;
         description = "A simple Racket dev shell";
       };
-      c = {
-        path = ./c;
-        description = "A simple C dev shell";
+      c-cpp = {
+        path = ./c-cpp;
+        description = "A simple C/C++ dev shell";
       };
       prolog = {
         path = ./prolog;
         description = "A simple Prolog dev shell";
-      };
-      cpp = {
-        path = ./cpp;
-        description = "A simple C++ dev shell";
       };
     };
   };
