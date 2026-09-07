@@ -2,10 +2,9 @@
   description = "Nix flake templates";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixpkgs-unstable";
   };
 
-  outputs = { self, nixpkgs }: {
+  outputs = { self }: {
     templates = {
       haskell = {
         path = ./haskell;

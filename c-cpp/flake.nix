@@ -1,21 +1,21 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-# Don't follow nixpkgs because we want neovim to be pinned to avoid breakage
     neovim.url = "github:robbins/neovim-nix";
-    utils = {
-      url = "github:numtide/flake-utils";
-      inputs.systems.inputs.nixpkgs.follows = "nixpkgs";
-    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = { self, nixpkgs, utils, neovim }:
-    utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs { inherit system; };
-      in {
-        devShell = with pkgs; (mkShell.override { stdenv = gcc13Stdenv; }) {
-          packages = [ 
+  outputs = { flake-parts, neovim, ... }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "aarch64-darwin"
+      ];
+      perSystem =
+        { pkgs, system, ... }: {
+        devShells.default = (pkgs.mkShell.override { stdenv = pkgs.clang_22.stdenv; }) {
+          packages = with pkgs; [ 
             gnumake
             bear
             compdb
@@ -23,9 +23,13 @@
             clang
             gdb
             valgrind 
-# can extend further if we need
+            cppcheck
+          ] ++ [
+            # We can extend further if needed
             neovim.nixvimConfigurations.${system}.c-cpp.config.build.package
           ];
         };
-    });
+        formatter = pkgs.nixfmt-tree;
+    };
+  };
 }
